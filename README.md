@@ -1,46 +1,51 @@
-# Zoho Desk Extension Sample: React + Typescript + Tailwind
+# Guia de Submissão de Nova Extensão para Zoho Desk
 
-This repository is showing you an example of a [Zoho Desk Extension](https://www.zoho.com/desk/extensions/guide/introduction.html) with [React 18](https://react.dev) and [TypeScript 5](https://www.typescriptlang.org).  It is based on an original template created by the team at [Wiiisdom](https://wiiisdom.com).  For a clean template, and if you don't need Tailwind, check [their repo](https://github.com/wiiisdom/zoho-desk-extension-react-ts).
+Este guia detalha os passos necessários para subir uma nova extensão para Zoho Desk. Siga os passos abaixo para garantir uma submissão bem-sucedida.
 
-## Why?
+## Passo 1: Edição do arquivo "widget.html"
 
-I am trying to implement some internal extensions for my company, and I've been creating some simple samples using the documentation to get to know how Zoho desk extensions work.  These are really just my experiments, using React for developing templates.
+1. Localize o arquivo **"widget.html"** na pasta **"app"** do seu projeto.
+2. Edite o arquivo com o código necessário para modificar o contato associado ao ticket.
 
-Although this sample may seem a bit *messy*, I thought it could be of use to others learning what's available, since the Zoho extensions documentation is not always the clearest, and contains some errors.
+## Passo 2: Edição do arquivo "plugin-manifest.json"
 
-I hope this is of use, if you find yourself in the same boat as me.
+1. Acesse o arquivo **"plugin-manifest.json"**.
+2. Insira as informações de localização da extensão, nome, conexões e outras informações relevantes.
 
-## How to run these samples
+## Passo 3: Validação do código
 
-You can follow the guide [here](https://www.zoho.com/desk/extensions/guide/test-extension.html), but in a nutshell:
+1. Abra o terminal.
+2. Navegue até a pasta do projeto.
+3. Execute o comando `zet validate` para validar todo o código.
 
-```bash
-yarn # install deps
-zet run # run locally
-```
+## Passo 4: Empacotamento do código
 
-And then be sure to activate the Developer mode on Zoho Desk side.
+1. Após a validação bem-sucedida, execute o comando `zet pack` no terminal.
+2. Isso criará um arquivo zip do código, localizado na pasta **"dist"**.
 
-![screenshot](./screenshot.png)
+## Passo 5: Criação da Extensão no Sigma
 
-## How to pack the extension for a release?
+1. Acesse a página do Sigma.
+2. Crie uma nova extensão, fornecendo um nome descritivo.
+3. Selecione o serviço **Zoho Desk**.
+4. Faça o upload do arquivo zip criado anteriormente.
 
-```bash
-zet validate # validate before packing
-zet pack 
-```
+## Passo 6: Criação de uma Nova Conexão Zoho OAuth
 
-## Technical information
+1. Crie uma nova conexão Zoho OAuth.
+2. Adicione os escopos necessários, como **Desk.tickets.ALL**, **Desk.contacts.ALL**, e outros conforme necessário.
 
-- This extension is relying on `ts-loader` in the webpack configuration to read the `tsx`/`ts` files.
-- The `ZOHODESK` object type is declared in `globals.d.ts`. I have begun extending it, but it's far from complete.
-- components are located in `src/components`, see the basic `App.tsx`
-- a basic test is build in `test/components`, it is relying on `vitest`.
+## Passo 7: Publicação da Extensão
 
-## License
+1. Após configurar a extensão, publique-a.
+2. Defina a extensão como privada.
+3. No link de instalação gerado, conceda as permissões solicitadas.
 
-This template is available under the MIT license.
+## Passo 8: Verificação e Atualização
 
-## Author
+1. Acesse um ticket no Zoho Desk para verificar se a extensão está funcionando corretamente.
+2. Para ajustes adicionais, repita os passos necessários, incluindo a criação de um novo zip, a publicação e a atualização da extensão no Zoho Desk.
 
-- Tim Hill (following the work of Julien Bras at Wiiisdom )
+Para mais informações detalhadas, consulte a [documentação oficial do Zoho Desk Extensions](https://www.zoho.com/desk/extensions/guide/extensions.html).
+
+Este guia fornece uma visão geral dos passos necessários. Certifique-se de consultar a documentação oficial para obter informações detalhadas sobre cada etapa do processo de submissão da extensão.
