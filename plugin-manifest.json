@@ -1,0 +1,40 @@
+{
+  "locale": [
+    "en"
+  ],
+  "service": "DESK",
+  "storage": false,
+  "type": "personal",
+  "whiteListedDomains": [
+    "https://desk.zoho.com"
+  ],
+  "modules": {
+    "widgets": [
+      {
+        "location": "desk.ticket.form.rightpanel",
+        "url": "/app/widget.html",
+        "name": "Tabela Pedidos",
+        "logo": "/app/img/logo.png",
+        "icon": "/app/img/icon.png"
+      }
+    ]
+  },
+  "cspDomains": {
+    "connect-src": []
+  },
+  "zohoAuthorisation": {
+    "type": "connectors",
+    "connectionLinkName": "zohodesk",
+    "connectionName": "zohodesk",
+    "serviceName": "zlabs_integration",
+    "userAccess": true,
+    "isUserDefinedService": false,
+    "sharedBy": "819609396",
+    "scope": [
+      "Desk.contacts.ALL"
+    ]
+  },
+  "connectors": [],
+  "config": [],
+  "moduleSupport": true
+}
